@@ -275,7 +275,7 @@ public class ServiceDiscoveryClient implements Watcher {
     private void cacheAppNodes(String rootPath,List<String> children) {
         children.forEach(appRootName->{
             boolean retryLoop=true;
-            int retryCount=3;
+            int retryCount=this.serviceDiscoveryClientConfig.getZkConnectRetry();
             while(retryLoop && retryCount>0) {
                 try {
                     List<String> appNodes = this.zooKeeper.getChildren(rootPath + PATH_SLASH + appRootName, false);
@@ -291,7 +291,7 @@ public class ServiceDiscoveryClient implements Watcher {
 
     private void cacheAppNodeData(String rootPath,String appName,String appNodeId){
         boolean retryLoop=true;
-        int retryCount=3;
+        int retryCount=this.serviceDiscoveryClientConfig.getZkConnectRetry();
         while(retryLoop && retryCount>0) {
             try {
                 Stat stat = new Stat();

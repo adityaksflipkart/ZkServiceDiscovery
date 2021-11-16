@@ -23,6 +23,8 @@ public class ServiceDiscoveryClientConfig {
     private Boolean fetchOnInit;
     @Value( "${discovery.service.port}" )
     private String port;
+    @Value("${discovery.zk.retry:3}")
+    private int zkConnectRetry;
     @Value("classpath:zookeeper.properties")
     Resource zkConfig;
 
