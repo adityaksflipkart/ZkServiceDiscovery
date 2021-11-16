@@ -1,3 +1,3 @@
 # ZkServiceDiscovery
 
-Client for Service Disccovery Using ZK , check Samle Application
+Client for Service Disccovery Using ZK , check Sample Application
